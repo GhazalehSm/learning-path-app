@@ -1,1 +1,22 @@
-<p>start-learning works!</p>
+<div class="start-page">
+  <h1>What do you want to learn?</h1>
+  <p class="subtitle">Tell us the subject — we'll build your path from there</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="subject">Subject</label>
+    <input
+      id="subject"
+      type="text"
+      formControlName="subject"
+      placeholder="e.g. Dutch, JavaScript, Photography"
+    />
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    <button type="submit" [disabled]="form.invalid || loading">
+      {{ loading ? 'Creating your path…' : 'Continue' }}
+    </button>
+  </form>
+</div>
