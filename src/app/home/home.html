@@ -2,8 +2,13 @@
   <nav class="nav">
     <img src="/logo.png" alt="Pathwise — Start where you left off" class="logo-img" />
     <div class="nav-actions">
-      <a class="contact-link" href="#">Contact us</a>
-      <button class="login-btn">Log in</button>
+      @if (auth.isLoggedIn()) {
+        <span class="welcome-text">Welcome, {{ userName }}</span>
+        <button class="login-btn" (click)="logOut()">Log out</button>
+      } @else {
+        <a class="contact-link" href="#">Contact us</a>
+        <a routerLink="/login" class="login-btn">Log in</a>
+      }
     </div>
   </nav>
 
