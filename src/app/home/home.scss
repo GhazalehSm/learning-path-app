@@ -1,6 +1,7 @@
 .page {
   background: #ffffff;
   padding: 1.5rem;
+  padding-top: 0rem;
   padding-bottom: 6rem; // room for the fixed bar below
   max-width: 1100px;
   margin: 0 auto;
@@ -30,6 +31,12 @@
   gap: 16px;
 }
 
+.welcome-text {
+  font-size: 13px;
+  color: #12332b;
+  font-weight: 500;
+}
+
 .contact-link {
   font-size: 13px;
   color: #565656;
@@ -49,6 +56,8 @@
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .eyebrow {
