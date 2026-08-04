@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Auth } from '../../auth';
 
 @Component({
@@ -21,6 +21,7 @@ export class Login {
     private fb: FormBuilder,
     private auth: Auth,
     private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -52,7 +53,8 @@ export class Login {
       next: () => {
         this.loading = false;
         if (!this.isSignUp) {
-          this.router.navigate(['/']);
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+          this.router.navigate([returnUrl]);
         } else {
           this.errorMessage = '';
           this.isSignUp = false;
