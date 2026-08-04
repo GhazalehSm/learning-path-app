@@ -12,7 +12,9 @@
     </div>
   </nav>
 
-  <p class="eyebrow">Welcome back</p>
+  @if (auth.isLoggedIn()) {
+    <p class="eyebrow">Welcome back</p>
+  }
   <h1>Where do you want to go?</h1>
 
   <div class="doors">
