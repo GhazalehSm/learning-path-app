@@ -33,20 +33,15 @@ export class StartLearning {
 
     const subject = this.form.value.subject;
 
-    this.learningPathService
-      .create({
-        subject,
-        title: `Learn ${subject}`,
-      })
-      .subscribe({
-        next: (path) => {
-          this.loading = false;
-          this.router.navigate(['/paths', path.id]);
-        },
-        error: (err) => {
-          this.loading = false;
-          this.errorMessage = err.error?.message || 'Something went wrong. Please try again.';
-        },
-      });
+    this.learningPathService.create({ subject }).subscribe({
+      next: (path) => {
+        this.loading = false;
+        this.router.navigate(['/paths', path.id]);
+      },
+      error: (err) => {
+        this.loading = false;
+        this.errorMessage = err.error?.message || 'Something went wrong. Please try again.';
+      },
+    });
   }
 }

@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 interface CreateLearningPathPayload {
   subject: string;
-  title: string;
   startingLevel?: string;
 }
 
